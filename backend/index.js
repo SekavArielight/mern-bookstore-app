@@ -42,6 +42,23 @@ app.post("/books", async (request, response) => {
   }
 });
 
+// Route to get all books
+app.get('/books', async (request, response) => {
+  try {
+    const books = await Book.find({});
+
+    return response.status(200).send({
+      count: books.length,
+      data: books,
+    });
+  } catch (error) {
+    console.log(error.message);
+    response.status(500).send({ message: error.message });
+  }
+});
+
+// Route to get a book by ID
+
 mongoose
   .connect(mongoDBURL)
   .then(() => {
