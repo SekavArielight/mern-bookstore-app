@@ -108,10 +108,10 @@ app.delete("/books/:id", async (request, response) => {
       response.status(404).send({ message: "Book not found" });
     }
 
-    return response.status(204).send({message: "Book deleted successfully"});
+    return response.status(204).send({ message: "Book deleted successfully" });
   } catch (error) {
     console.log(error.message);
-    response.status(500).send({message: error.messsage});
+    response.status(500).send({ message: error.messsage });
   }
 });
 
